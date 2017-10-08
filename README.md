@@ -1,2 +1,2 @@
-# massively
-Massively theme for Bludit
+# Massively theme for Bludit
+
