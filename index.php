@@ -35,7 +35,7 @@
 		<ul class="links">
 			<li><a href="<?php echo $Site->url() ?>">Home</a></li>
 			<?php if( $WHERE_AM_I=='page' ) {
-				echo '<li class="active"><a href="<?php echo $page->permalink() ?>">'.$page->title().'</a></li>';
+				echo '<li class="active"><a href="'.$page->permalink().'">'.$page->title().'</a></li>';
 			}?>
 		</ul>
 		<ul class="icons">
