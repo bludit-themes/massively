@@ -39,10 +39,21 @@
 			}?>
 		</ul>
 		<ul class="icons">
+			<?php if ($Site->twitter()): ?>
 			<li><a href="<?php echo $Site->twitter() ?>" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+			<?php endif ?>
+			<?php if ($Site->facebook()): ?>
 			<li><a href="<?php echo $Site->facebook() ?>" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+			<?php endif ?>
+			<?php if ($Site->instagram()): ?>
 			<li><a href="<?php echo $Site->instagram() ?>" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+			<?php endif ?>
+			<?php if ($Site->github()): ?>
 			<li><a href="<?php echo $Site->github() ?>" class="icon fa-github"><span class="label">GitHub</span></a></li>
+			<?php endif ?>
+			<?php if ($Site->linkedin()): ?>
+			<li><a href="<?php echo $Site->linkedin() ?>" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+			<?php endif ?>
 		</ul>
 	</nav>
 

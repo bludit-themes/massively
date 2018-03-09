@@ -5,7 +5,7 @@
 	echo Theme::headTitle();
 	echo Theme::headDescription();
 
-	Theme::favicon('assets/favicon.png');
+	echo Theme::favicon('assets/favicon.png');
 
 	// FontAwesome from Bludit Core
 	echo Theme::fontAwesome();
