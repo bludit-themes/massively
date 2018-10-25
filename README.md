@@ -1,7 +1,8 @@
 # Massively theme for Bludit
+This is Massively, a text-heavy, article-oriented design built around a huge background image.
 
 ## Compatible
-- Bludit v2.x
+- Bludit v3.x
 
 ## Author
 - Diego
