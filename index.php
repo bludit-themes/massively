@@ -1,92 +1,99 @@
-<!DOCTYPE HTML>
-<!--
-	Theme design by HTML5 UP - html5up.net | @ajlkn
-	Website running on BLUDIT - bludit.com | @bludit
--->
+<!DOCTYPE html>
 <html>
 <head>
-<?php include(THEME_DIR_PHP.'head.php') ?>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="author" content="Bludit CMS">
+
+	<!-- Dynamic title tag -->
+	<?php echo Theme::metaTags('title') ?>
+
+	<!-- Dynamic description tag -->
+	<?php echo Theme::metaTags('description') ?>
+
+	<!-- Include Favicon -->
+	<?php echo Theme::favicon('img/favicon.png') ?>
+
+	<!-- Include CSS Styles from this theme -->
+	<?php echo Theme::css('assets/css/main.css') ?>
+
+	<noscript>
+	<?php echo Theme::css('assets/css/noscript.css') ?>
+	</noscript>
+
+	<!-- Load plugins -->
+	<?php Theme::plugins('siteHead') ?>
 </head>
-<body class="is-loading">
+<body class="is-preload">
 
-<?php 	// Load plugins
-	Theme::plugins('siteBodyBegin');
-?>
+	<!-- Load plugins -->
+	<?php Theme::plugins('siteBodyBegin') ?>
 
-<!-- Wrapper -->
-<div id="wrapper" class="fade-in">
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
 
-	<!-- Intro -->
-	<div id="intro">
-		<h1><?php echo $Site->title() ?></h1>
-		<p><?php echo $Site->description() ?></p>
-		<ul class="actions">
-			<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-		</ul>
+		<!-- Intro -->
+		<div id="intro">
+			<h1><?php echo $site->title() ?></h1>
+			<p><?php echo $site->description() ?></p>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="<?php echo Theme::siteUrl() ?>" class="logo"><?php echo $site->title() ?></a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li class="<?php echo ($WHERE_AM_I=='home')?'active':'' ?>"><a href="<?php echo Theme::siteUrl() ?>"><?php $language->p('Homepage') ?></a></li>
+				<!-- Static pages -->
+				<?php foreach ($staticContent as $staticPage): ?>
+				<li class="<?php echo ($staticPage->permalink()==$page->permalink())?'active':'' ?>"><a href="<?php echo $staticPage->permalink() ?>#main"><?php echo $staticPage->title() ?></a></li>
+				<?php endforeach ?>
+			</ul>
+			<ul class="icons">
+				<!-- Social networks defined in init.php -->
+				<?php foreach ($socialNetworks as $key=>$label): ?>
+					<?php if ($site->{$key}()): ?>
+					<li><a href="<?php echo $site->{$key}() ?>" class="icon <?php echo 'fa-'.$key ?>"><span class="label"><?php echo $label ?></span></a></li>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+		<?php
+			if ($WHERE_AM_I == 'page') {
+				include(THEME_DIR.'page.php');
+			} else {
+				include(THEME_DIR.'home.php');
+			}
+		?>
+		</div>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul><li><?php echo $site->footer() ?></li><li>Powered by <a href="https://www.bludit.com">Bludit</a></li></ul>
+		</div>
+
 	</div>
 
-	<!-- Header -->
-	<header id="header">
-		<a href="<?php echo $Site->url() ?>" class="logo"><?php echo $Site->title() ?></a>
-	</header>
+	<!-- Scripts -->
+	<?php echo Theme::jquery() ?>
+	<?php echo Theme::js('assets/js/jquery.scrollex.min.js') ?>
+	<?php echo Theme::js('assets/js/jquery.scrolly.min.js') ?>
+	<?php echo Theme::js('assets/js/browser.min.js') ?>
+	<?php echo Theme::js('assets/js/breakpoints.min.js') ?>
+	<?php echo Theme::js('assets/js/util.js') ?>
+	<?php echo Theme::js('assets/js/main.js') ?>
 
-	<!-- Nav -->
-	<nav id="nav">
-		<ul class="links">
-			<li><a href="<?php echo $Site->url() ?>">Home</a></li>
-			<?php if( $WHERE_AM_I=='page' ) {
-				echo '<li class="active"><a href="'.$page->permalink().'">'.$page->title().'</a></li>';
-			}?>
-		</ul>
-		<ul class="icons">
-			<?php if ($Site->twitter()): ?>
-			<li><a href="<?php echo $Site->twitter() ?>" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-			<?php endif ?>
-			<?php if ($Site->facebook()): ?>
-			<li><a href="<?php echo $Site->facebook() ?>" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-			<?php endif ?>
-			<?php if ($Site->instagram()): ?>
-			<li><a href="<?php echo $Site->instagram() ?>" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-			<?php endif ?>
-			<?php if ($Site->github()): ?>
-			<li><a href="<?php echo $Site->github() ?>" class="icon fa-github"><span class="label">GitHub</span></a></li>
-			<?php endif ?>
-			<?php if ($Site->linkedin()): ?>
-			<li><a href="<?php echo $Site->linkedin() ?>" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
-			<?php endif ?>
-		</ul>
-	</nav>
+	<!-- Load plugins -->
+	<?php Theme::plugins('siteBodyEnd') ?>
 
-	<!-- Main -->
-	<div id="main">
-	<?php
-		if ($WHERE_AM_I=='page') {
-			include(THEME_DIR_PHP.'page.php');
-		} else {
-			include(THEME_DIR_PHP.'home.php');
-		}
-	?>
-	</div>
-
-	<!-- Copyright -->
-	<div id="copyright">
-		<ul><li><?php echo $Site->footer() ?></li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Powered by <a href="https://www.bludit.com">BLUDIT</a></li></ul>
-	</div>
-
-</div>
-
-<!-- Javascript -->
-<?php
-	echo Theme::javascript('assets/js/jquery.min.js');
-	echo Theme::javascript('assets/js/jquery.scrollex.min.js');
-	echo Theme::javascript('assets/js/jquery.scrolly.min.js');
-	echo Theme::javascript('assets/js/skel.min.js');
-	echo Theme::javascript('assets/js/util.js');
-	echo Theme::javascript('assets/js/main.js');
-?>
-
-<?php 	// Load plugins
-	Theme::plugins('siteBodyEnd');
-?>
 </body>
 </html>
