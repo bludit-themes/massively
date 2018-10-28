@@ -12,6 +12,10 @@ This is Massively, a text-heavy, article-oriented design built around a huge bac
 - https://html5up.net
 - @ajlkn
 
+## Images
+All images used in the theme are free of use, downloaded from Unsplash.
+- https://unsplash.com/
+
 ## License
 - Creative Commons Attribution 3.0 License
 
