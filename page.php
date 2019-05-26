@@ -9,4 +9,6 @@
 	</header>
 	<div class="image main"><img src="<?php echo ($page->coverImage()?$page->coverImage():Theme::src('images/default.svg')) ?>" alt="<?php echo $page->title() ?>" /></div>
 	<?php echo $page->content() ?>
+	<!-- Load Bludit Plugins: Page End -->
+	<?php Theme::plugins('pageEnd'); ?>
 </section>
