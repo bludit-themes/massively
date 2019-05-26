@@ -2,6 +2,8 @@
 
 <!-- Post -->
 <section class="post">
+	<!-- Load Bludit Plugins: Page Begin -->
+	<?php Theme::plugins('pageBegin'); ?>
 	<header class="major">
 		<span class="date"><?php echo $page->date() ?></span>
 		<h1><?php echo $page->title() ?></h1>
