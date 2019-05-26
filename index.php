@@ -57,7 +57,7 @@
 			</ul>
 			<ul class="icons">
 				<!-- Social networks defined in init.php -->
-				<?php foreach ($socialNetworks as $key=>$label): ?>
+				<?php foreach (Theme::socialNetworks() as $key=>$label): ?>
 					<?php if ($site->{$key}()): ?>
 					<li><a href="<?php echo $site->{$key}() ?>" class="icon <?php echo 'fa-'.$key ?>"><span class="label"><?php echo $label ?></span></a></li>
 					<?php endif; ?>
