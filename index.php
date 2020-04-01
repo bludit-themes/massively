@@ -12,7 +12,7 @@
 	<?php echo Theme::metaTags('description') ?>
 
 	<!-- Include Favicon -->
-	<?php echo Theme::favicon('img/favicon.png') ?>
+	<?php echo Theme::favicon('images/favicon.png') ?>
 
 	<!-- Include CSS Styles from this theme -->
 	<?php echo Theme::css('assets/css/main.css') ?>
